@@ -1,6 +1,14 @@
 cff-version: 1.2.0
 message: "If you use this code or data, please cite the article below."
 repository-code: "https://github.com/ChoiSeoung-Ho/lgca-net-honeybee"
+doi: 10.5281/zenodo.22802908
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22802908
+    description: "Archived version corresponding to revision 7 (v7.0)"
+  - type: doi
+    value: 10.5281/zenodo.22802907
+    description: "Concept DOI (all versions)"
 title: "Code and data for: A Hybrid Convolutional Neural Network-Transformer Architecture with Cross-Attention Fusion for Honeybee Disease Classification"
 authors:
   - family-names: Choi

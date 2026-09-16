@@ -2,7 +2,7 @@
 
 Author: Seoung-Ho Choi (Hansung University / Korea University College of Medicine)
 Manuscript: submitted to *Ecological Informatics* (revision 7, 2026-09-16)
-Repository: https://github.com/ChoiSeoung-Ho/lgca-net-honeybee — archived version: https://doi.org/10.5281/zenodo.XXXXXXX
+Repository: https://github.com/ChoiSeoung-Ho/lgca-net-honeybee — archived version (v7.0): https://doi.org/10.5281/zenodo.22802908 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22802908.svg)](https://doi.org/10.5281/zenodo.22802908)
 Licence: MIT for the code and derived data in this repository; the source images belong to AI-Hub and are **not** redistributed (see `data/README.md` and `docs/AIHUB_ACCESS_GUIDE.md`, an English step-by-step guide to obtaining them).
 
 This repository follows the journal's reproducibility policy (Huettmann & Arhonditsis, 2023,

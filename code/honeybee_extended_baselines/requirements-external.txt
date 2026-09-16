@@ -1,0 +1,5 @@
+# In addition to the base requirements of the code package.
+# Install the repositories themselves as described in models/external/README.md.
+timm>=1.0.0
+transformers>=4.40      # optional: HuggingFace path for MambaVision
+# mambavision            # optional: official NVIDIA package (builds CUDA kernels)

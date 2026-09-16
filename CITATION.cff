@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the article below."
+repository-code: "https://github.com/ChoiSeoung-Ho/lgca-net-honeybee"
+title: "Code and data for: A Hybrid Convolutional Neural Network-Transformer Architecture with Cross-Attention Fusion for Honeybee Disease Classification"
+authors:
+  - family-names: Choi
+    given-names: Seoung-Ho
+    affiliation: "Hansung University; Korea University College of Medicine"
+    email: jcn99250@naver.com
+date-released: 2026-09-16
+version: "revision-7"
+license: MIT
+keywords:
+  - honeybee
+  - disease classification
+  - CNN-Transformer
+  - cross-attention
+  - shortcut learning
+  - confounding
+preferred-citation:
+  type: article
+  title: "A Hybrid Convolutional Neural Network-Transformer Architecture with Cross-Attention Fusion for Honeybee Disease Classification"
+  authors:
+    - family-names: Choi
+      given-names: Seoung-Ho
+  journal: "Ecological Informatics"
+  year: 2026
+  notes: "under review (revision 7)"

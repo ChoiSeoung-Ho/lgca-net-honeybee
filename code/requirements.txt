@@ -1,0 +1,30 @@
+# Environment used for the manuscript: Python 3.10, PyTorch 2.9.0, CUDA 12.8.
+#
+# Install PyTorch from the CUDA 12.8 index first, then the rest:
+#   pip install torch==2.9.0 torchvision --index-url https://download.pytorch.org/whl/cu128
+#   pip install -r requirements.txt
+#
+# ---- deep learning (train_cv.py, train_seeds.py, xai_localization_foldwise.py)
+torch==2.9.0
+torchvision
+timm>=1.0.0
+
+# ---- CPU-only analysis (everything else runs with just these)
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+scikit-learn>=1.3
+Pillow>=10.0
+opencv-python-headless>=4.8
+matplotlib>=3.7
+
+# ---- optional
+# pytorch-grad-cam>=1.5.0   # xai_localization_foldwise.py falls back to its own
+#                           # hook-based Grad-CAM when this is absent.
+#
+# Deliberately NOT used anywhere:
+#   imagehash    - pHash is implemented directly with a DCT in extract_image_features.py
+#   statsmodels  - Holm-Bonferroni, DeLong and McNemar are implemented in common/metrics.py
+#
+# External baselines (MambaVision, LSNet-T, Conformer, Mobile-Former) are not on
+# PyPI in the versions used; see models/external/README.md.

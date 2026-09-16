@@ -1,0 +1,170 @@
+{
+ "conformer": {
+  "key": "conformer",
+  "display_name": "Conformer-S",
+  "ok": true,
+  "n_params_total": 36266244,
+  "n_params_trainable": 36266244,
+  "params_millions": 36.266,
+  "pretrained_requested": true,
+  "pretrained_loaded": true,
+  "source": "repo:conformer",
+  "detail": "Conformer-small patch_size=16, channel_ratio=4, embed_dim=384, depth=12, num_heads=6, mlp_ratio=4, qkv_bias=True",
+  "checkpoint": "<CODE_ROOT>/checkpoints/Conformer_small_patch16.pth",
+  "checkpoint_sha256": "edaf23ec08a1fcde",
+  "input_size": 224,
+  "forward_ok": true,
+  "notes": [
+   "loaded 714 tensors; 4 missing, 0 unexpected",
+   "dual classifier head reduced by summation (official protocol)"
+  ]
+ },
+ "mobileformer": {
+  "key": "mobileformer",
+  "display_name": "Mobile-Former-294M",
+  "ok": false,
+  "error": "ExternalModelUnavailable: Mobile-Former is not importable.\n  Microsoft has not released official code or ImageNet weights for Mobile-Former.\n  Install a reference implementation, e.g.\n     git clone https://github.com/slwang9353/MobileFormer\n     export PYTHONPATH=$PWD/MobileFormer:$PYTHONPATH\n  If that implementation ships no ImageNet checkpoint, this backbone cannot be\n  reported as an ImageNet-pretrained baseline.",
+  "traceback": "Traceback (most recent call last):\n  File \"<CODE_ROOT>/honeybee_extended_baselines/verify_external_models.py\", line 78, in main\n    model = M.build_model(name, pretrained=pretrained,\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<CODE_ROOT>/common/models.py\", line 458, in build_model\n    return MODEL_REGISTRY[name](pretrained=pretrained, num_classes=num_classes)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<CODE_ROOT>/models/external/adapters.py\", line 544, in _build\n    return fn(pretrained=pretrained, num_classes=num_classes,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nmodels.external.adapters.ExternalModelUnavailable: Mobile-Former is not importable.\n  Microsoft has not released official code or ImageNet weights for Mobile-Former.\n  Install a reference implementation, e.g.\n     git clone https://github.com/slwang9353/MobileFormer\n     export PYTHONPATH=$PWD/MobileFormer:$PYTHONPATH\n  If that implementation ships no ImageNet checkpoint, this backbone cannot be\n  reported as an ImageNet-pretrained baseline.\n"
+ },
+ "lsnet_t": {
+  "key": "lsnet_t",
+  "display_name": "LSNet-T",
+  "ok": true,
+  "cpu_forward": "failed (ValueError); verified on CUDA",
+  "n_params_total": 11025602,
+  "n_params_trainable": 11025602,
+  "params_millions": 11.026,
+  "pretrained_requested": true,
+  "pretrained_loaded": true,
+  "source": "timm-registered by repo module 'model.lsnet'",
+  "detail": "lsnet_t",
+  "checkpoint": "",
+  "checkpoint_sha256": "",
+  "input_size": 224,
+  "forward_ok": true,
+  "notes": [
+   "CPU forward failed (ValueError); verified on CUDA"
+  ]
+ },
+ "mambavision": {
+  "key": "mambavision",
+  "display_name": "MambaVision-T",
+  "ok": true,
+  "cpu_forward": "failed (RuntimeError); verified on CUDA",
+  "n_params_total": 31154530,
+  "n_params_trainable": 31154530,
+  "params_millions": 31.155,
+  "pretrained_requested": true,
+  "pretrained_loaded": true,
+  "source": "huggingface:nvidia/MambaVision-T-1K",
+  "detail": "MambaVision-T",
+  "checkpoint": "",
+  "checkpoint_sha256": "",
+  "input_size": 224,
+  "forward_ok": true,
+  "notes": [
+   "head 'model.head': 1000 -> 2",
+   "classifier head replaced with a 2-class linear layer",
+   "CPU forward failed (RuntimeError); verified on CUDA"
+  ]
+ },
+ "lgca_net": {
+  "key": "lgca_net",
+  "display_name": "Proposed (LGCA-Net)",
+  "ok": true,
+  "n_params_total": 1459074,
+  "n_params_trainable": 1459074,
+  "params_millions": 1.459,
+  "pretrained_requested": false,
+  "pretrained_loaded": false,
+  "source": "timm/bundled"
+ },
+ "lgca_net_no_cross_attn": {
+  "key": "lgca_net_no_cross_attn",
+  "display_name": "LGCA-Net (w/o cross-attn.)",
+  "ok": true,
+  "n_params_total": 1196674,
+  "n_params_trainable": 1196674,
+  "params_millions": 1.197,
+  "pretrained_requested": false,
+  "pretrained_loaded": false,
+  "source": "timm/bundled"
+ },
+ "lgca_net_cnn_only": {
+  "key": "lgca_net_cnn_only",
+  "display_name": "LGCA-Net (CNN only)",
+  "ok": true,
+  "n_params_total": 290946,
+  "n_params_trainable": 290946,
+  "params_millions": 0.291,
+  "pretrained_requested": false,
+  "pretrained_loaded": false,
+  "source": "timm/bundled"
+ },
+ "resnet50": {
+  "key": "resnet50",
+  "display_name": "ResNet-50",
+  "ok": true,
+  "n_params_total": 23512130,
+  "n_params_trainable": 23512130,
+  "params_millions": 23.512,
+  "pretrained_requested": true,
+  "pretrained_loaded": true,
+  "source": "timm/bundled"
+ },
+ "densenet121": {
+  "key": "densenet121",
+  "display_name": "DenseNet-121",
+  "ok": true,
+  "n_params_total": 6955906,
+  "n_params_trainable": 6955906,
+  "params_millions": 6.956,
+  "pretrained_requested": true,
+  "pretrained_loaded": true,
+  "source": "timm/bundled"
+ },
+ "efficientnetv2": {
+  "key": "efficientnetv2",
+  "display_name": "EfficientNetV2-S",
+  "ok": true,
+  "n_params_total": 20180050,
+  "n_params_trainable": 20180050,
+  "params_millions": 20.18,
+  "pretrained_requested": true,
+  "pretrained_loaded": true,
+  "source": "timm/bundled"
+ },
+ "coatnet": {
+  "key": "coatnet",
+  "display_name": "CoAtNet",
+  "ok": true,
+  "n_params_total": 26668100,
+  "n_params_trainable": 26668100,
+  "params_millions": 26.668,
+  "pretrained_requested": true,
+  "pretrained_loaded": true,
+  "source": "timm/bundled"
+ },
+ "crossvit": {
+  "key": "crossvit",
+  "display_name": "CrossViT",
+  "ok": true,
+  "n_params_total": 26279428,
+  "n_params_trainable": 26279428,
+  "params_millions": 26.279,
+  "pretrained_requested": true,
+  "pretrained_loaded": true,
+  "source": "timm/bundled"
+ },
+ "nextvit_small": {
+  "key": "nextvit_small",
+  "display_name": "Next-ViT-S",
+  "ok": true,
+  "n_params_total": 30740418,
+  "n_params_trainable": 30740418,
+  "params_millions": 30.74,
+  "pretrained_requested": true,
+  "pretrained_loaded": true,
+  "source": "timm/bundled"
+ }
+}

@@ -1,0 +1,6 @@
+threshold,n_images,n_pairs,n_pairs_same_hive,n_pairs_diff_hive,frac_pairs_diff_hive,n_pairs_same_class,n_pairs_cross_class,n_components,n_multi_components,n_removed_by_dedup,frac_images_removed,crossings_fold0,crossings_fold1,crossings_fold2,crossings_total
+0,1000,2,0,2,1.0,2,0,998,2,2,0.002,1,0,1,2
+2,1000,23,2,21,0.9130434782608695,23,0,979,15,21,0.021,10,13,9,32
+4,1000,137,9,128,0.9343065693430657,137,0,905,29,95,0.095,44,66,62,172
+6,1000,379,25,354,0.9340369393139841,379,0,806,26,194,0.194,150,182,190,522
+8,1000,891,45,846,0.9494949494949495,891,0,719,14,281,0.281,387,402,447,1236

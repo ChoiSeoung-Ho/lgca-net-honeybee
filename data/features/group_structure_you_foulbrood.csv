@@ -1,0 +1,2 @@
+n_images,n_unparsed_filenames,n_sites,n_hive_proxies,n_sessions,n_images_normal,n_images_abnormal,n_sites_normal,n_sites_abnormal,n_hive_proxies_normal,n_hive_proxies_abnormal,n_sessions_normal,n_sessions_abnormal,n_hive_proxies_both_classes,n_sites_both_classes,images_per_hive_proxy_mean
+1000,0,13,87,402,500,500,13,3,83,32,315,94,28,3,11.49

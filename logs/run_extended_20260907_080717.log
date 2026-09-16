@@ -1,0 +1,79 @@
+
+=== extended baselines: conformer lsnet_t mambavision   (log: ./results/run_extended_20260907_080717.log) ===
+
+=== stage 1 - verifying the external backbones (no training) ===
++ python <CODE_ROOT>/honeybee_extended_baselines/verify_external_models.py --code-root . --models conformer lsnet_t mambavision --out ./results/model_provenance.json
+/root/anaconda3/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/root/anaconda3/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/root/anaconda3/lib/python3.12/site-packages/timm/models/helpers.py:7: FutureWarning: Importing from timm.models.helpers is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+
+model        status      params (M)  pretrained  source
+-----------------------------------------------------------------
+conformer    OK              36.266  yes         repo:conformer
+lsnet_t      OK              11.026  yes         timm-registered by repo module 'model.ls
+mambavision  OK              31.155  yes         huggingface:nvidia/MambaVision-T-1K
+
+wrote ./results/model_provenance.json
++ python <CODE_ROOT>/honeybee_extended_baselines/verify_external_models.py --code-root . --models all --out ./results/model_provenance.json
+/root/anaconda3/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/root/anaconda3/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/root/anaconda3/lib/python3.12/site-packages/timm/models/helpers.py:7: FutureWarning: Importing from timm.models.helpers is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+
+model                   status      params (M)  pretrained  source
+----------------------------------------------------------------------------
+lgca_net                OK               1.459  NO (random) timm/bundled
+lgca_net_no_cross_attn  OK               1.197  NO (random) timm/bundled
+lgca_net_cnn_only       OK               0.291  NO (random) timm/bundled
+resnet50                OK              23.512  yes         timm/bundled
+densenet121             OK               6.956  yes         timm/bundled
+efficientnetv2          OK              20.180  yes         timm/bundled
+coatnet                 OK              26.668  yes         timm/bundled
+crossvit                OK              26.279  yes         timm/bundled
+nextvit_small           OK              30.740  yes         timm/bundled
+conformer               OK              36.266  yes         repo:conformer
+mobileformer            FAILED              --  --          ExternalModelUnavailable: Mobile-Former is not importable.
+ 
+lsnet_t                 OK              11.026  yes         timm-registered by repo module 'model.ls
+mambavision             OK              31.155  yes         huggingface:nvidia/MambaVision-T-1K
+
+wrote ./results/model_provenance.json
+
+Failed: mobileformer
+Install instructions: models/external/README.md
+
+=== stage 2 - learning-rate search and hive-grouped 3-fold training ===
++ python ./train_cv.py --data-root ./data --task you_chalk_brood --models conformer lsnet_t mambavision --grouped --run-tag original --manifest-dir ./results --out-dir ./results --ckpt-dir ./model_save --device cuda
+/root/anaconda3/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+device: cuda
+manifest: ./results/split_manifest_grouped_you_chalk_brood.csv (3000 rows)
+
+=== you_chalk_brood / conformer (ImageNet-pretrained) ===
+  [lr search] conformer lr=0.001
+    epoch   0  train 0.3426  val 0.0811  val BA 0.9628  (16.3s)
+    epoch   1  train 0.1063  val 0.2083  val BA 0.9615  (13.1s)
+    epoch   2  train 0.0617  val 0.1260  val BA 0.9538  (14.7s)
+    epoch   3  train 0.1206  val 0.9195  val BA 0.8679  (17.7s)
+    epoch   4  train 0.0710  val 0.0922  val BA 0.9615  (16.1s)
+    epoch   5  train 0.0556  val 0.0835  val BA 0.9615  (15.3s)
+    epoch   6  train 0.0721  val 0.0913  val BA 0.9615  (15.9s)
+    epoch   7  train 0.0653  val 0.0832  val BA 0.9615  (16.7s)
+    epoch   8  train 0.0819  val 0.1882  val BA 0.9615  (16.4s)
+    epoch   9  train 0.0599  val 0.0949  val BA 0.9513  (17.2s)
+    epoch  10  train 0.0614  val 0.2965  val BA 0.9615  (19.3s)
+    early stop at epoch 10 (best epoch 0, val loss 0.0811)
+  [lr search] conformer lr=0.001 -> fold-0 val BA 0.9628
+  [lr search] conformer lr=0.0003
+    epoch   0  train 0.2062  val 0.0816  val BA 0.9615  (15.1s)
+    epoch   1  train 0.0633  val 0.2065  val BA 0.8910  (16.1s)
+    epoch   2  train 0.0945  val 0.0818  val BA 0.9615  (15.9s)
+    epoch   3  train 0.0623  val 0.0966  val BA 0.9551  (16.5s)
+    epoch   4  train 0.0505  val 0.1040  val BA 0.9615  (16.0s)
+    epoch   5  train 0.0317  val 0.1009  val BA 0.9628  (16.3s)
+    epoch   6  train 0.0411  val 0.0931  val BA 0.9385  (18.3s)

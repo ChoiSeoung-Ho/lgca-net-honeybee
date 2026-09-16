@@ -1,0 +1,28 @@
+
+=== extended baselines: conformer lsnet_t mambavision   (log: ./results/run_extended_20260907_081912.log) ===
+
+=== stage 1 - verifying the external backbones (no training) ===
++ python <CODE_ROOT>/honeybee_extended_baselines/verify_external_models.py --code-root . --models conformer lsnet_t mambavision --out ./results/model_provenance.json
+/root/anaconda3/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/root/anaconda3/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+
+model        status      params (M)  pretrained  source
+-----------------------------------------------------------------
+conformer    FAILED              --  --          ExternalModelUnavailable: Conformer is not importable.
+  git
+lsnet_t      FAILED              --  --          ExternalModelUnavailable: LSNet is not importable.
+  git clo
+mambavision  OK              31.155  yes         huggingface:nvidia/MambaVision-T-1K
+
+wrote ./results/model_provenance.json
+
+Failed: conformer, lsnet_t
+Install instructions: models/external/README.md
+
+[stop] At least one backbone is not installed. Nothing was trained.
+       Follow models/external/README.md, then re-run.
+       To proceed with only the backbones that do build, set
+         NEW_MODELS="<the ones that passed>"
+

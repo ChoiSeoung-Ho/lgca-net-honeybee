@@ -1,0 +1,96 @@
+
+=== extended baselines: conformer lsnet_t mambavision   (log: ./results/run_extended_20260908_041656.log) ===
+
+=== stage 3 - metrics and fold-wise paired tests over ALL models ===
++ python ./evaluate_cv.py --task you_chalk_brood --run-tag original --results-dir ./results --out-dir ./results
+<CODE_ROOT>/./evaluate_cv.py:329: SyntaxWarning: invalid escape sequence '\%'
+  + [f"{m} (95\% CI)" for m in ABLATION_METRICS]
+<CODE_ROOT>/./evaluate_cv.py:330: SyntaxWarning: invalid escape sequence '\p'
+  + [f"{m} (fold $\pm$ SD)" for m in ABLATION_METRICS]
+<CODE_ROOT>/./evaluate_cv.py:331: SyntaxWarning: invalid escape sequence '\m'
+  + ["DeLong $p_{\mathrm{Holm}}$ (per fold)",
+<CODE_ROOT>/./evaluate_cv.py:332: SyntaxWarning: invalid escape sequence '\m'
+  "McNemar $p_{\mathrm{Holm}}$ (per fold)"])
+<CODE_ROOT>/./evaluate_cv.py:334: SyntaxWarning: invalid escape sequence '\ '
+  ("Across folds", len(ABLATION_METRICS)), ("vs.\ full model", 2)]
+[you_chalk_brood] models: coatnet, conformer, crossvit, densenet121, efficientnetv2, lgca_net_cnn_only, lgca_net_no_cross_attn, lgca_net, lsnet_t, mambavision, nextvit_small, resnet50
+  CoAtNet                  BA=0.953 (0.940-0.966)  AUROC=0.987
+  Conformer-S              BA=0.947 (0.933-0.960)  AUROC=0.990
+  CrossViT                 BA=0.950 (0.937-0.963)  AUROC=0.984
+  DenseNet-121             BA=0.951 (0.937-0.963)  AUROC=0.988
+  EfficientNetV2-S         BA=0.950 (0.936-0.963)  AUROC=0.990
+  LGCA-Net (CNN only)      BA=0.952 (0.939-0.965)  AUROC=0.983
+  LGCA-Net (w/o cross-attn.) BA=0.951 (0.938-0.964)  AUROC=0.984
+  Proposed (LGCA-Net)      BA=0.951 (0.938-0.964)  AUROC=0.984
+  LSNet-T                  BA=0.962 (0.950-0.973)  AUROC=0.990
+  MambaVision-T            BA=0.967 (0.955-0.977)  AUROC=0.993
+  Next-ViT-S               BA=0.954 (0.941-0.966)  AUROC=0.983
+  ResNet-50                BA=0.966 (0.955-0.976)  AUROC=0.988
+wrote ./results/cv_metrics_pooled_original.csv
+wrote ./results/cv_metrics_foldwise_original.csv
+wrote ./results/cv_pairwise_foldwise_original.csv
+wrote ./tables/cv_metrics_original.tex
+wrote ./tables/cv_foldwise_original.tex
+wrote ./tables/cv_pairwise_foldwise_original.tex
+wrote ./tables/ablation_original.tex
++ python ./evaluate_cv.py --task you_foulbrood --run-tag original --results-dir ./results --out-dir ./results
+<CODE_ROOT>/./evaluate_cv.py:329: SyntaxWarning: invalid escape sequence '\%'
+  + [f"{m} (95\% CI)" for m in ABLATION_METRICS]
+<CODE_ROOT>/./evaluate_cv.py:330: SyntaxWarning: invalid escape sequence '\p'
+  + [f"{m} (fold $\pm$ SD)" for m in ABLATION_METRICS]
+<CODE_ROOT>/./evaluate_cv.py:331: SyntaxWarning: invalid escape sequence '\m'
+  + ["DeLong $p_{\mathrm{Holm}}$ (per fold)",
+<CODE_ROOT>/./evaluate_cv.py:332: SyntaxWarning: invalid escape sequence '\m'
+  "McNemar $p_{\mathrm{Holm}}$ (per fold)"])
+<CODE_ROOT>/./evaluate_cv.py:334: SyntaxWarning: invalid escape sequence '\ '
+  ("Across folds", len(ABLATION_METRICS)), ("vs.\ full model", 2)]
+[you_foulbrood] models: coatnet, conformer, crossvit, densenet121, efficientnetv2, lgca_net_cnn_only, lgca_net_no_cross_attn, lgca_net, lsnet_t, mambavision, nextvit_small, resnet50
+  CoAtNet                  BA=0.957 (0.944-0.970)  AUROC=0.984
+  Conformer-S              BA=0.974 (0.964-0.983)  AUROC=0.985
+  CrossViT                 BA=0.964 (0.952-0.975)  AUROC=0.987
+  DenseNet-121             BA=0.964 (0.952-0.975)  AUROC=0.979
+  EfficientNetV2-S         BA=0.948 (0.934-0.961)  AUROC=0.988
+  LGCA-Net (CNN only)      BA=0.822 (0.798-0.846)  AUROC=0.929
+  LGCA-Net (w/o cross-attn.) BA=0.901 (0.883-0.918)  AUROC=0.955
+  Proposed (LGCA-Net)      BA=0.894 (0.875-0.912)  AUROC=0.956
+  LSNet-T                  BA=0.946 (0.931-0.959)  AUROC=0.984
+  MambaVision-T            BA=0.963 (0.951-0.974)  AUROC=0.977
+  Next-ViT-S               BA=0.949 (0.935-0.962)  AUROC=0.981
+  ResNet-50                BA=0.956 (0.943-0.968)  AUROC=0.982
+wrote ./results/cv_metrics_pooled_original.csv
+wrote ./results/cv_metrics_foldwise_original.csv
+wrote ./results/cv_pairwise_foldwise_original.csv
+wrote ./tables/cv_metrics_original.tex
+wrote ./tables/cv_foldwise_original.tex
+wrote ./tables/cv_pairwise_foldwise_original.tex
+wrote ./tables/ablation_original.tex
+
+=== stage 4 - matched subsets, confound reliance, tables and figures ===
++ python <CODE_ROOT>/honeybee_extended_baselines/analysis/matched_subsets.py --results-dir ./results --out-dir ./results --tables-dir ./tables --run-tag original --tasks you_chalk_brood you_foulbrood
+[info] 12 models: lgca_net, lgca_net_no_cross_attn, lgca_net_cnn_only, resnet50, densenet121, efficientnetv2, coatnet, crossvit, nextvit_small, conformer, lsnet_t, mambavision
+[you_chalk_brood] 109 pairs / 218 images, L* SMD -2.484 -> -0.418; Holm-significant DeLong 4/33
+[you_foulbrood] 174 pairs / 348 images, L* SMD -1.347 -> -0.045; Holm-significant DeLong 11/33
+wrote ./results/matched_report.json
++ python <CODE_ROOT>/honeybee_extended_baselines/analysis/confound_reliance.py --results-dir ./results --out-dir ./results --run-tag original --tasks you_chalk_brood you_foulbrood
+[info] 12 models: lgca_net, lgca_net_no_cross_attn, lgca_net_cnn_only, resnet50, densenet121, efficientnetv2, coatnet, crossvit, nextvit_small, conformer, lsnet_t, mambavision
+[you_chalk_brood / matched] label reference BA=0.853; model surrogate BA 0.828-0.983; largest gap +0.130 (lgca_net_no_cross_attn)
+[you_chalk_brood / original] label reference BA=0.945; model surrogate BA 0.948-0.994; largest gap +0.049 (lgca_net)
+[you_foulbrood / matched] label reference BA=0.583; model surrogate BA 0.582-0.823; largest gap +0.240 (lgca_net_no_cross_attn)
+[you_foulbrood / original] label reference BA=0.845; model surrogate BA 0.781-0.934; largest gap +0.089 (lgca_net_no_cross_attn)
+wrote ./results/confound_reliance.csv
++ python <CODE_ROOT>/honeybee_extended_baselines/analysis/make_manuscript_tables.py --results-dir ./results --out-dir ./results --tables-dir ./tables --run-tag original --tasks you_chalk_brood you_foulbrood
+Traceback (most recent call last):
+  File "<CODE_ROOT>/honeybee_extended_baselines/analysis/make_manuscript_tables.py", line 230, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "<CODE_ROOT>/honeybee_extended_baselines/analysis/make_manuscript_tables.py", line 72, in main
+    lines.append(block(f"{TASKS[task]} ($n={int(pool[pool.task == task].n.iloc[0]):,}$)".replace(",", "{,}"), 9))
+                                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/root/anaconda3/lib/python3.12/site-packages/pandas/core/indexing.py", line 1192, in __getitem__
+    return self._getitem_axis(maybe_callable, axis=axis)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/anaconda3/lib/python3.12/site-packages/pandas/core/indexing.py", line 1753, in _getitem_axis
+    self._validate_integer(key, axis)
+  File "/root/anaconda3/lib/python3.12/site-packages/pandas/core/indexing.py", line 1686, in _validate_integer
+    raise IndexError("single positional indexer is out-of-bounds")
+IndexError: single positional indexer is out-of-bounds
